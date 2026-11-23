@@ -1,0 +1,52 @@
+@if (evenement(); as evenement) {
+  <main class="detail">
+    <a class="retour" routerLink="/evenements">Retour aux evenements</a>
+
+    @switch (evenement.categorie) {
+      @case ('atelier') { <span class="badge atelier">Atelier</span> }
+      @case ('conference') { <span class="badge conference">Conference</span> }
+      @case ('competition') { <span class="badge competition">Competition</span> }
+      @case ('sortie') { <span class="badge sortie">Sortie</span> }
+    }
+
+    @if (estPasse()) { <span class="termine">Termine</span> }
+
+    <h1>{{ evenement.titre }}</h1>
+    <p class="club">{{ evenement.club }}</p>
+    <p class="description">{{ evenement.description }}</p>
+
+    <dl>
+      <div><dt>Date</dt><dd>{{ evenement.date | date:'EEEE d MMMM y, HH:mm' }}</dd></div>
+      <div><dt>Lieu</dt><dd>{{ evenement.lieu }}</dd></div>
+      <div><dt>Capacite</dt><dd>{{ evenement.capacite }} places</dd></div>
+      <div><dt>Places reservees</dt><dd>{{ evenement.placesReservees }}</dd></div>
+      <div><dt>Tarif</dt><dd>{{ evenement.gratuit ? 'Gratuit' : 'Payant' }}</dd></div>
+    </dl>
+
+    <div class="remplissage">
+      <div class="ligne">
+        <strong>Taux de remplissage</strong>
+        <span>{{ tauxRemplissage() }} %</span>
+      </div>
+      <progress [value]="tauxRemplissage()" max="100"></progress>
+    </div>
+
+    <p class="etat">{{ evenement | etatPlaces:5 }}</p>
+
+    @if (dejaReserve()) {
+      <p class="inscrit">Vous êtes déjà inscrit</p>
+    } @else if (placesRestantes() === 0) {
+      <button type="button" disabled>Complet</button>
+    } @else if (estPasse()) {
+      <button type="button" disabled>Evenement termine</button>
+    } @else {
+      <button type="button" disabled>Réserver</button>
+    }
+  </main>
+} @else {
+  <main class="inconnu">
+    <h1>Evenement introuvable</h1>
+    <p>L’identifiant demande ne correspond a aucun evenement.</p>
+    <a routerLink="/evenements">Retour a la liste</a>
+  </main>
+}

@@ -1,12 +1,13 @@
 import { Component, input, output } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { Evenement } from '../../modeles/evenement';
 import { EtatPlacesPipe } from '../../pipes/etat-places.pipe';
 
 @Component({
   selector: 'app-carte-evenement',
   standalone: true,
-  imports: [DatePipe, EtatPlacesPipe],
+  imports: [DatePipe, EtatPlacesPipe, RouterLink],
   templateUrl: './carte-evenement.html',
   styleUrl: './carte-evenement.css',
 })

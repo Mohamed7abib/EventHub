@@ -18,6 +18,7 @@
   </dl>
   <p class="etat">{{ evenement() | etatPlaces:5 }}</p>
   <p class="prix">{{ evenement().gratuit ? 'Gratuit' : 'Payant' }}</p>
+  <a class="details" [routerLink]="['/evenements', evenement().id]">Voir le detail</a>
   <button type="button" (click)="basculerFavori()" [class.selectionne]="estFavori()">
     {{ estFavori() ? 'Retirer des favoris' : 'Ajouter aux favoris' }}
   </button>

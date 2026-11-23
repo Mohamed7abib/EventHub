@@ -16,3 +16,4 @@ dd { margin: 0; }
 .prix { font-weight: 700; }
 button { width: 100%; border: 1px solid #2563eb; border-radius: .5rem; padding: .65rem; background: #fff; color: #2563eb; cursor: pointer; }
 button.selectionne { background: #2563eb; color: #fff; }
+.details { display: block; margin: .75rem 0; text-align: center; color: #1d4ed8; font-weight: 700; }
