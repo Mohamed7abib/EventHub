@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.footer-host {
+  min-height: 4rem;
+}
+
+.footer-placeholder {
+  margin-top: 3rem;
+  padding: 1.25rem 2rem;
+  text-align: center;
+  background: #eef2ff;
+  color: #334155;
+}

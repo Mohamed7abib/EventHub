@@ -1,0 +1,49 @@
+<main>
+  <section class="titre">
+    <div>
+      <p class="surtitre">Decouvrez le campus</p>
+      <h1>Evenements</h1>
+    </div>
+    <p class="favoris">Favoris : {{ idsFavoris().length }}</p>
+  </section>
+
+  <section class="filtres" aria-label="Filtres des evenements">
+    <label>
+      Recherche
+      <input
+        type="search"
+        [value]="recherche()"
+        (input)="recherche.set($any($event.target).value)"
+        placeholder="Titre ou club"
+      />
+    </label>
+    <label>
+      Categorie
+      <select [value]="categorie()" (change)="categorie.set($any($event.target).value)">
+        <option value="toutes">Toutes</option>
+        <option value="atelier">Atelier</option>
+        <option value="conference">Conference</option>
+        <option value="competition">Competition</option>
+        <option value="sortie">Sortie</option>
+      </select>
+    </label>
+    <label>
+      Tri
+      <select [value]="tri()" (change)="tri.set($any($event.target).value)">
+        <option value="date-asc">Date croissante</option>
+        <option value="date-desc">Date decroissante</option>
+        <option value="places">Places restantes</option>
+      </select>
+    </label>
+  </section>
+
+  @for (evenement of (evenements.evenements() | filtreEvenements:recherche():categorie() | triEvenements:tri()); track evenement.id) {
+    <app-carte-evenement
+      [evenement]="evenement"
+      [favoris]="idsFavoris()"
+      (favoriChange)="basculerFavori($event)"
+    />
+  } @empty {
+    <p class="aucun">Aucun evenement ne correspond aux filtres.</p>
+  }
+</main>

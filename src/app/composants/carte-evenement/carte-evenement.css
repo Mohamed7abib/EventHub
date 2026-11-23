@@ -1,0 +1,18 @@
+.carte { height: 100%; box-sizing: border-box; padding: 1.25rem; border: 1px solid #dbe3ef; border-radius: 0.8rem; background: #fff; box-shadow: 0 4px 14px rgba(15,23,42,.06); }
+.passee { opacity: .55; filter: grayscale(.7); }
+.entete { display: flex; justify-content: space-between; }
+.badge, .termine { border-radius: 999px; padding: .25rem .55rem; font-size: .78rem; font-weight: 700; }
+.atelier { background: #dcfce7; color: #166534; }
+.conference { background: #dbeafe; color: #1e40af; }
+.competition { background: #fee2e2; color: #991b1b; }
+.sortie { background: #fef3c7; color: #92400e; }
+.termine { background: #e2e8f0; color: #334155; }
+h2 { margin: 1rem 0 .25rem; }
+.club { color: #2563eb; font-weight: 700; }
+dl div { display: flex; gap: .5rem; }
+dt { font-weight: 700; }
+dd { margin: 0; }
+.etat { color: #0f766e; font-weight: 700; }
+.prix { font-weight: 700; }
+button { width: 100%; border: 1px solid #2563eb; border-radius: .5rem; padding: .65rem; background: #fff; color: #2563eb; cursor: pointer; }
+button.selectionne { background: #2563eb; color: #fff; }

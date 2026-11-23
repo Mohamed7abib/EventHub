@@ -1,0 +1,18 @@
+<header class="header">
+  <a class="brand" routerLink="/">EventHub</a>
+  <nav aria-label="Navigation principale">
+    <a routerLink="/evenements" routerLinkActive="active">Evenements</a>
+    @if (session.utilisateur(); as utilisateur) {
+      <span>Bonjour, {{ utilisateur.nom }}</span>
+      @if (utilisateur.role === 'organisateur') {
+        <a routerLink="/organisateur/evenements/nouveau">Nouvel evenement</a>
+      }
+      <span>Mes reservations ({{ nombreReservations }})</span>
+      <button type="button" (click)="session.deconnecter()">Se deconnecter</button>
+    } @else {
+      <button type="button" (click)="session.connecter({ email: 'etudiant@eventhub.local', nom: 'Etudiant EventHub', role: 'etudiant' })">
+        Se connecter
+      </button>
+    }
+  </nav>
+</header>

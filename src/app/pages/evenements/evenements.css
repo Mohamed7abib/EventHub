@@ -1,0 +1,13 @@
+:host { display: block; }
+main { max-width: 1180px; margin: 0 auto; padding: 2rem 1.5rem; }
+.titre { display: flex; align-items: end; justify-content: space-between; }
+.surtitre { color: #2563eb; font-weight: 700; }
+h1 { margin: .25rem 0 1.5rem; font-size: 2.25rem; }
+.favoris { border-radius: 999px; background: #dbeafe; color: #1e40af; padding: .5rem .75rem; font-weight: 700; }
+.filtres { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+label { display: grid; gap: .35rem; font-weight: 700; }
+input, select { box-sizing: border-box; width: 100%; padding: .75rem; border: 1px solid #cbd5e1; border-radius: .5rem; background: #fff; }
+main { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.titre, .filtres, .aucun { grid-column: 1 / -1; }
+.aucun { padding: 2rem; text-align: center; border: 1px dashed #94a3b8; border-radius: .75rem; }
+@media (max-width: 800px) { main { grid-template-columns: 1fr; } .filtres { grid-template-columns: 1fr; } }

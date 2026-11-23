@@ -1,0 +1,24 @@
+<article class="carte" [class.passee]="estPasse()">
+  <div class="entete">
+    @switch (evenement().categorie) {
+      @case ('atelier') { <span class="badge atelier">Atelier</span> }
+      @case ('conference') { <span class="badge conference">Conference</span> }
+      @case ('competition') { <span class="badge competition">Competition</span> }
+      @case ('sortie') { <span class="badge sortie">Sortie</span> }
+    }
+    @if (estPasse()) { <span class="termine">Termine</span> }
+  </div>
+
+  <h2>{{ evenement().titre }}</h2>
+  <p class="club">{{ evenement().club }}</p>
+  <p>{{ evenement().description }}</p>
+  <dl>
+    <div><dt>Date</dt><dd>{{ evenement().date | date:'d MMMM y, HH:mm' }}</dd></div>
+    <div><dt>Lieu</dt><dd>{{ evenement().lieu }}</dd></div>
+  </dl>
+  <p class="etat">{{ evenement() | etatPlaces:5 }}</p>
+  <p class="prix">{{ evenement().gratuit ? 'Gratuit' : 'Payant' }}</p>
+  <button type="button" (click)="basculerFavori()" [class.selectionne]="estFavori()">
+    {{ estFavori() ? 'Retirer des favoris' : 'Ajouter aux favoris' }}
+  </button>
+</article>
